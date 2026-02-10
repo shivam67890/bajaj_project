@@ -1,7 +1,7 @@
 const { generateText } = require("ai");
 const { google } = require("@ai-sdk/google");
 
-const GEMINI_API_KEY = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 exports.getAnswer = async (question) => {
   try {
