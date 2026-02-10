@@ -1,8 +1,6 @@
 const OFFICIAL_EMAIL = process.env.OFFICIAL_EMAIL || 'your.email@chitkara.edu.in';
 
-/**
- * Health check endpoint
- */
+
 exports.healthCheck = (req, res) => {
   try {
     res.status(200).json({

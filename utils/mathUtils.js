@@ -1,6 +1,4 @@
-/**
- * Generate Fibonacci sequence up to n terms
- */
+
 exports.generateFibonacci = (n) => {
   if (n === 0) return [];
   if (n === 1) return [0];
@@ -14,9 +12,7 @@ exports.generateFibonacci = (n) => {
   return fib;
 };
 
-/**
- * Check if a number is prime
- */
+
 function isPrime(num) {
   if (num < 2) return false;
   if (num === 2) return true;
@@ -30,16 +26,12 @@ function isPrime(num) {
   return true;
 }
 
-/**
- * Filter prime numbers from array
- */
+
 exports.filterPrimes = (arr) => {
   return arr.filter(num => isPrime(num));
 };
 
-/**
- * Calculate GCD of two numbers using Euclidean algorithm
- */
+
 function gcd(a, b) {
   a = Math.abs(a);
   b = Math.abs(b);
@@ -53,16 +45,12 @@ function gcd(a, b) {
   return a;
 }
 
-/**
- * Calculate LCM of two numbers
- */
+
 function lcm(a, b) {
   return Math.abs(a * b) / gcd(a, b);
 }
 
-/**
- * Calculate HCF/GCD of array of numbers
- */
+
 exports.calculateHCF = (arr) => {
   if (arr.length === 0) return 0;
   if (arr.length === 1) return arr[0];
@@ -70,15 +58,13 @@ exports.calculateHCF = (arr) => {
   let result = arr[0];
   for (let i = 1; i < arr.length; i++) {
     result = gcd(result, arr[i]);
-    if (result === 1) break; // Optimization
+    if (result === 1) break; 
   }
   
   return result;
 };
 
-/**
- * Calculate LCM of array of numbers
- */
+
 exports.calculateLCM = (arr) => {
   if (arr.length === 0) return 0;
   if (arr.length === 1) return arr[0];

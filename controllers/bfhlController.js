@@ -4,12 +4,10 @@ const aiService = require('../services/aiService');
 
 const OFFICIAL_EMAIL = process.env.OFFICIAL_EMAIL || 'your.email@chitkara.edu.in';
 
-/**
- * Main controller for POST /bfhl endpoint
- */
+
 exports.handleRequest = async (req, res) => {
   try {
-    // Validate request has exactly one functional key
+   
     const validationResult = validator.validateRequest(req.body);
     
     if (!validationResult.valid) {
@@ -73,12 +71,8 @@ exports.handleRequest = async (req, res) => {
     });
   }
 };
-
-/**
- * Handle fibonacci sequence generation
- */
 async function handleFibonacci(n) {
-  // Validate input
+  
   if (!Number.isInteger(n)) {
     throw new Error('Fibonacci input must be an integer');
   }
@@ -94,11 +88,9 @@ async function handleFibonacci(n) {
   return mathUtils.generateFibonacci(n);
 }
 
-/**
- * Handle prime number filtering
- */
+
 async function handlePrime(arr) {
-  // Validate input
+  
   if (!Array.isArray(arr)) {
     throw new Error('Prime input must be an array');
   }
@@ -111,7 +103,6 @@ async function handlePrime(arr) {
     throw new Error('Prime input array too large (max: 10000)');
   }
 
-  // Validate all elements are integers
   for (let num of arr) {
     if (!Number.isInteger(num)) {
       throw new Error('All elements in prime array must be integers');
@@ -124,11 +115,9 @@ async function handlePrime(arr) {
   return mathUtils.filterPrimes(arr);
 }
 
-/**
- * Handle LCM calculation
- */
+
 async function handleLcm(arr) {
-  // Validate input
+  
   if (!Array.isArray(arr)) {
     throw new Error('LCM input must be an array');
   }
@@ -141,7 +130,6 @@ async function handleLcm(arr) {
     throw new Error('LCM input array too large (max: 100)');
   }
 
-  // Validate all elements are positive integers
   for (let num of arr) {
     if (!Number.isInteger(num) || num <= 0) {
       throw new Error('All elements in LCM array must be positive integers');
@@ -151,11 +139,8 @@ async function handleLcm(arr) {
   return mathUtils.calculateLCM(arr);
 }
 
-/**
- * Handle HCF/GCD calculation
- */
 async function handleHcf(arr) {
-  // Validate input
+  
   if (!Array.isArray(arr)) {
     throw new Error('HCF input must be an array');
   }
@@ -168,7 +153,6 @@ async function handleHcf(arr) {
     throw new Error('HCF input array too large (max: 100)');
   }
 
-  // Validate all elements are positive integers
   for (let num of arr) {
     if (!Number.isInteger(num) || num <= 0) {
       throw new Error('All elements in HCF array must be positive integers');
@@ -177,12 +161,8 @@ async function handleHcf(arr) {
 
   return mathUtils.calculateHCF(arr);
 }
-
-/**
- * Handle AI question processing
- */
 async function handleAI(question) {
-  // Validate input
+  
   if (typeof question !== 'string') {
     throw new Error('AI input must be a string');
   }
@@ -195,7 +175,7 @@ async function handleAI(question) {
     throw new Error('AI question too long (max: 1000 characters)');
   }
 
-  // Call AI service
+
   const answer = await aiService.getAnswer(question);
   return answer;
 }

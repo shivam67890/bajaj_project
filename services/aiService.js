@@ -3,9 +3,6 @@ const axios = require('axios');
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
 
-/**
- * Get AI answer from Google Gemini
- */
 exports.getAnswer = async (question) => {
   try {
     if (!GEMINI_API_KEY) {
@@ -31,18 +28,17 @@ exports.getAnswer = async (question) => {
         headers: {
           'Content-Type': 'application/json'
         },
-        timeout: 10000 // 10 second timeout
+        timeout: 10000
       }
     );
 
     if (response.data?.candidates?.[0]?.content?.parts?.[0]?.text) {
       let answer = response.data.candidates[0].content.parts[0].text.trim();
       
-      // Extract first word or short phrase
+      
       const words = answer.split(/\s+/);
       answer = words.slice(0, Math.min(3, words.length)).join(' ');
       
-      // Remove punctuation from end
       answer = answer.replace(/[.,!?;:]$/, '');
       
       return answer;

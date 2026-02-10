@@ -1,6 +1,4 @@
-/**
- * Validates that request contains exactly one functional key
- */
+
 exports.validateRequest = (body) => {
   if (!body || typeof body !== 'object') {
     return {
@@ -29,7 +27,7 @@ exports.validateRequest = (body) => {
   const key = receivedKeys[0];
   const value = body[key];
 
-  // Type validation
+  
   switch (key) {
     case 'fibonacci':
       if (typeof value !== 'number' || !Number.isInteger(value)) {
