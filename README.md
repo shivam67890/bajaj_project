@@ -294,15 +294,11 @@ All errors return:
 - **hcf**: Array of positive integers, max 100 elements
 - **AI**: String, 1-1000 characters
 
-## 📄 License
 
-MIT
 
-## 👤 Author
-
-Your Name
-- Email: your.email@chitkara.edu.in
-- GitHub: [@yourusername](https://github.com/yourusername)
+shivam shukla
+- Email: shivam0885.be23@chitkara.edu.in
+- GitHub: [@shivam67890](https://github.com/shivam67890)
 
 ## 🙏 Acknowledgments
 
